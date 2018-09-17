@@ -508,7 +508,7 @@ def run(args, dag=None):
         for section, config in conf_dict.items():
             for option, value in config.items():
                 try:
-                    conf.set(section, option, value)
+                    conf.set(section, option, value.replace('%', '%%'))
                 except NoSectionError:
                     log.error('Section {section} Option {option} '
                               'does not exist in the config!'.format(section=section,
